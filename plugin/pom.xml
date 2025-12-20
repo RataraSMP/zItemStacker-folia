@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>fr.maxlego08.itemstacker</groupId>
+        <artifactId>zItemStacker-parent</artifactId>
+        <version>2.0.1</version>
+    </parent>
+
+    <artifactId>zItemStacker</artifactId>
+    <packaging>jar</packaging>
+
+    <name>zItemStacker</name>
+    <description>Simple items stacker</description>
+    <url>https://groupez.dev</url>
+
+    <dependencies>
+        <dependency>
+            <groupId>fr.maxlego08.itemstacker</groupId>
+            <artifactId>api</artifactId>
+            <version>2.0.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.tcoded</groupId>
+            <artifactId>FoliaLib</artifactId>
+            <version>0.5.1</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.5.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <relocations>
+                                <relocation>
+                                    <pattern>com.tcoded.folialib</pattern>
+                                    <shadedPattern>fr.maxlego08.itemstacker.lib.folialib</shadedPattern>
+                                </relocation>
+                            </relocations>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>com/cryptomorin/xseries/profiles/**</exclude>
+                                        <exclude>com/cryptomorin/xseries/profiles/*/*</exclude>
+                                        <exclude>com/cryptomorin/xseries/reflection/**</exclude>
+                                        <exclude>com/cryptomorin/xseries/reflection/*/*</exclude>
+                                        <exclude>com/cryptomorin/xseries/messages/*</exclude>
+                                        <exclude>com/cryptomorin/xseries/particles/*</exclude>
+                                        <exclude>com/cryptomorin/xseries/inventory/*</exclude>
+                                        <exclude>com/cryptomorin/xseries/art/*</exclude>
+                                        <exclude>com/cryptomorin/xseries/XAttribute*</exclude>
+                                        <exclude>com/cryptomorin/xseries/XItemFlag*</exclude>
+                                        <exclude>com/cryptomorin/xseries/XPatternType*</exclude>
+                                        <exclude>com/cryptomorin/xseries/XBiome*</exclude>
+                                        <exclude>com/cryptomorin/xseries/NMSExtras*</exclude>
+                                        <exclude>com/cryptomorin/xseries/NoteBlockMusic*</exclude>
+                                        <exclude>com/cryptomorin/xseries/SkullCacheListener*</exclude>
+                                        <exclude>com/cryptomorin/xseries/XTag*</exclude>
+                                        <exclude>com/cryptomorin/xseries/XPotion*</exclude>
+                                        <exclude>com/cryptomorin/xseries/XMaterial*</exclude>
+                                        <exclude>com/cryptomorin/xseries/XItemStack*</exclude>
+                                        <exclude>com/cryptomorin/xseries/XBlock*</exclude>
+                                        <exclude>com/cryptomorin/xseries/XEntity*</exclude>
+                                        <exclude>com/cryptomorin/xseries/XEnchantment*</exclude>
+                                        <exclude>com/cryptomorin/xseries/SkullUtils*</exclude>
+                                        <exclude>com/cryptomorin/xseries/ReflectionUtils*</exclude>
+                                        <exclude>com/cryptomorin/xseries/XWorldBorder*</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

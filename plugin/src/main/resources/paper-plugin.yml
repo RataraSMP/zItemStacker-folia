@@ -1,0 +1,9 @@
+name: ${project.name}
+author: Maxlego08
+main: fr.maxlego08.itemstacker.ItemStackerPlugin
+website: ${project.url}
+description: ${project.description}
+version: ${project.version}
+api-version: 1.21
+folia-supported: true
+commands:
