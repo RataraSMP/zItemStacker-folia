@@ -31,3 +31,6 @@ maven {
 ````gradle
 compileOnly("fr.maxlego08.itemstacker:zitemstacker-api:{version}")
 ````
+
+---
+Note: Optimized for Folia performance and thread safety.
