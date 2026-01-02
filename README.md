@@ -1,5 +1,5 @@
 # zItemStacker
-
+folia-project
 Allows you to stack your items
 
 Download here: https://modrinth.com/plugin/zitemstacker
